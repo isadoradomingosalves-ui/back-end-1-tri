@@ -1,52 +1,104 @@
-/*Imagine que você abriu uma loja:
-1) Crie o nome de 10 produtos e armazene em uma lista;
-2) Crie outra lista para armazenar o preço de cada produto.
-3) Crie uma função para mostrar o estoque, mostrando o nome da cada produto e o seu preço.
-4) Crie uma função que adiciona um novo produto (e consequentemente um novo preço)
-5) Crie uma função que remove um produto da lista recebendo seu índice.
-6) EXECUTE AS FUNÇÕES CRIADAS NA SEGUINTE ORDEM:
-    - mostra estoque
-    - adiciona produto
-    - mostra estoque
-    - remove um elemento pelo índice
-    - mostra estoque
-*/
+const mangas = [
+    {
+        nome: "Mangá NANA vol 1",
+        valor: "R$ 24,00",
+        quantidade: 707,
+        peso: 200,
+        marca: "Panini",
+        codigo: 1234
+    },
+    {
+        nome: "Mangá NANA vol 2",
+        valor: "R$ 20,00",
+        quantidade: 400,
+        peso: 200,
+        marca: "Panini",
+        codigo: 1324
+    },
+    {
+        nome: "Mangá NANA vol 3",
+        valor: "R$ 20,00",
+        quantidade: 400,
+        peso: 200,
+        marca: "Panini",
+        codigo: 1432
+    },
+    {
+        nome: "Mangá NANA vol 4",
+        valor: "R$ 20,00",
+        quantidade: 450,
+        peso: 200,
+        marca: "Panini",
+        codigo: 2134
+    },
+    {
+        nome: "Mangá NANA vol 5",
+        valor: "R$ 20,00",
+        quantidade: 350,
+        peso: 200,
+        marca: "Panini",
+        codigo: 2314
+    },
+    {
+        nome: "Mangá NANA vol 6",
+        valor: "R$ 20,00",
+        quantidade: 300,
+        peso: 200,
+        marca: "Panini",
+        codigo: 2431
+    },
+    {
+        nome: "Mangá NANA vol 7",
+        valor: "R$ 20,00",
+        quantidade: 450,
+        peso: 200,
+        marca: "Panini",
+        codigo: 3124
+    },
+    {
+        nome: "Mangá NANA vol 8",
+        valor: "R$ 20,00",
+        quantidade: 490,
+        peso: 200,
+        marca: "Panini",
+        codigo: 3214
+    },
+    {
+        nome: "Mangá NANA vol 9",
+        valor: "R$ 20,00",
+        quantidade: 500,
+        peso: 200,
+        marca: "Panini",
+        codigo: 3412
+    },
+    {
+        nome: "Mangá NANA vol 10",
+        valor: "R$ 20,00",
+        quantidade: 350,
+        peso: 200,
+        marca: "Panini",
+        codigo: 4123
+    },
+]
 
-let produtos = ["arroz","feijão","óleo","açúcar","farinha","fermento","margarina","requeijão","nescau","pão"];
- 
-  let precos = [10.99,9.50,10.90,12.00,8.00,2.50,6.00,10.00,7.90,11.20];
- 
-  function mostraEstoque() {
-    console.log(" Estoque do mrcado ");
-    for(let i = 0; i < produtos.length; i++) {
-      console.log(`${i}. ${produtos[i]} — R$ ${precos[i].toFixed(2)}`);
-    }
-    console.log("*******************************");
-  }
- 
+const mangasJSON = JSON.stringify(mangas)
+console.log(mangasJSON)
 
-  function adicionaProduto(nome, preco) {
-    produtos.push(nome);
-    precos.push(preco);
-    console.log(`Produto "${nome}" adicionado com sucesso!`);
-  }
- 
-  function removeProduto(indice) {
-    if(indice < 0 || indice >= produtos.length) {
-      console.log("Índice inválido! Nenhum produto removido.");
-      return;
-    }
-    const removido = produtos.splice(indice, 1);
-    precos.splice(indice, 1);
-    console.log(`Produto "${removido}" removido com sucesso!`);
-  }
+// Criar o arquivo
+const fs = require("fs")
+fs.writeFileSync("alunos.json", mangasJSON)
 
-  mostraEstoque();
- 
-  adicionaProduto("azeite virgem ", 11,90);
+// Ler o arquivo
+const mangasArquivo = require("./mangas.json")
+console.log(mangasArquivo)
 
-  mostraEstoque();
- 
-  removeProduto(3);
- 
-  mostraEstoque();
+// MOSTRAR OS DADOS DO ARQUIVO ORGANIZADAMENTE
+// alunosArquivo.forEach() ... etc
+alunosArquivo.forEach((aluno)=>{
+    console.log(mangas.nome + 
+        " - Valor: " + manga.valor + 
+        " - quantidade: " + manga.quantidade + 
+        " - Peso: " + manga.peso + 
+        " - Marca: " + manga.marca + 
+        " - Codigo: " + manga.codigo)
+})
