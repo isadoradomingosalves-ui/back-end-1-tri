@@ -1,5 +1,5 @@
-let c = 0
-while (c<=10){
+let c = -10
+while (c<= 0){
     console.log(c)
     c++
 }
